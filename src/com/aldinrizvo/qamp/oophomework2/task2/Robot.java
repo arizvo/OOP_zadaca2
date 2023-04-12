@@ -12,7 +12,7 @@ public class Robot {
         this(0, 0);
     }
 
-    public Robot(final double xCoordinate, final double yCoordinate) {
+    public Robot(final int xCoordinate, final int yCoordinate) {
         this.initialPosition = new Point(xCoordinate, yCoordinate);
         this.currentPosition = new Point(xCoordinate, yCoordinate);
         this.moveTracker = new ArrayList<>();
@@ -43,10 +43,7 @@ public class Robot {
     }
 
     public double getDistance() {
-        return Math.sqrt(
-                Math.pow(initialPosition.getXCoordinate() - currentPosition.getXCoordinate(), 2) +
-                        Math.pow(initialPosition.getYCoordinate() - currentPosition.getYCoordinate(), 2)
-        );
+        return initialPosition.getDistance(currentPosition);
     }
 
     public int getMoves() {
